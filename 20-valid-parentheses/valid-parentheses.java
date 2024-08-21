@@ -1,6 +1,6 @@
 class Solution {
     public boolean isValid(String s) {
-          Stack<Character> characterStack = new Stack<>();
+           Stack<Character> characterStack = new Stack<>();
         for (char stackies : s.toCharArray()) {
             if (stackies == '(' || stackies == '[' || stackies == '{') {
                 characterStack.push(stackies);
@@ -9,11 +9,10 @@ class Solution {
                     System.out.println("Stack kosong");
                     return false;
                 }
-                char top = characterStack.peek();
                 if (
-                        (stackies == ')' && top != '(') ||
-                                (stackies == ']' && top != '[') ||
-                                (stackies == '}' && top != '{')) {
+                        (stackies == ')' && characterStack.peek() != '(') ||
+                                (stackies == ']' && characterStack.peek() != '[') ||
+                                (stackies == '}' && characterStack.peek() != '{')) {
                     return false;
                 }
                 characterStack.pop();
